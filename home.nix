@@ -24,13 +24,15 @@
   xresources.properties = {
     "Xcursor.size" = 16;
     "Xft.dpi" = 172;
-  };
+ };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
     jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
     # neofetch
     nnn # terminal file manager
 
@@ -95,7 +97,7 @@
     # pciutils # lspci
     # usbutils # lsusb
   ];
-
+  services.jellyfin.enable = true;
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
