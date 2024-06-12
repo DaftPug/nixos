@@ -40,6 +40,7 @@
     ];
   };
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
+  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
 
   # networking.hostName = "nixos"; # Define your hostname.
   networking.hostName = "jelly-os"; # Define your hostname.

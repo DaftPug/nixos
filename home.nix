@@ -33,6 +33,7 @@
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
+    macchina
     # neofetch
     nnn # terminal file manager
 
