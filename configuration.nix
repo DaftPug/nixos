@@ -17,7 +17,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest; 
 
   boot.kernelParams = [ 
-    "i915.enable_guc=2"
+    "i915.enable_guc=3"
     "i915.force_probe=56a5"
     "i915.lmem_bar_size=4096"
   ];
