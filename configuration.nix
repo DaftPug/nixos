@@ -131,12 +131,12 @@
 
   # List services that you want to enable:
   boot.initrd = {
-  supportedFilesystems = [ "nfs" ];
-  kernelModules = [ "nfs" ];
+  supportedFilesystems = [ "tmpfs" ];
+  kernelModules = [ "tmpfs" ];
 };
   fileSystems."/data" = {
     device = "192.168.1.155:/data";
-    fsType = "nfs";
+    fsType = "tmpfs";
   };
 
   # Enable the OpenSSH daemon.
