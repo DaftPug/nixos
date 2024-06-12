@@ -132,9 +132,9 @@
 
 
   fileSystems."/data" = {
-      device = "192.168.1.155:data";
+      device = "data";
       fsType = "9p";
-      options = [ "trans=virtio" "version=9p2000.L" ];
+      options = [ "trans=virtio" "version=9p2000.L" "cache=loose" ];
     };
 
   # Enable the OpenSSH daemon.
