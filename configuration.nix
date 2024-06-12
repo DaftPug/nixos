@@ -129,22 +129,13 @@
     enableSSHSupport = true;
   };
 
-    # overide default vm filesystems behavior
-  fileSystems = pkgs.lib.mkOverride 0 ({
-    "/".device = vmConfig.bootDevice;
-    ${if vmConfig.writableStore then "/nix/.ro-store" else "/nix/store"} = {
-      device = "store";
-      fsType = "9p";
-      options = [ "trans=virtio" "version=9p2000.L" "cache=loose" ];
-      neededForBoot = true;
-    };
+
 
   fileSystems."/data" = {
-      device = "192.168.1.155:/data";
+      device = "192.168.1.155:data";
       fsType = "9p";
       options = [ "trans=virtio" "version=9p2000.L" ];
     };
-  });
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
