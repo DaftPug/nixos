@@ -34,6 +34,7 @@
     jellyfin-web
     jellyfin-ffmpeg
     macchina
+    busybox
     # neofetch
     nnn # terminal file manager
 

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, options, ... }:
 
 {
   imports =
@@ -42,6 +42,12 @@
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
 
+  programs.nix-ld.enable = true;
+  ## If needed, you can add missing libraries here. nix-index-database is your friend to
+  ## find the name of the package from the error message:
+  ## https://github.com/nix-community/nix-index-database
+  programs.nix-ld.libraries = options.programs.nix-ld.libraries.default ++ (with pkgs; [ yourlibrary ]);
+  
   # networking.hostName = "nixos"; # Define your hostname.
   networking.hostName = "jelly-os"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
