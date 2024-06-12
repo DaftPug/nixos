@@ -116,6 +116,7 @@
     gh
     wget
     curl
+    nfs-utils
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -129,6 +130,14 @@
   };
 
   # List services that you want to enable:
+  boot.initrd = {
+  supportedFilesystems = [ "nfs" ];
+  kernelModules = [ "nfs" ];
+};
+  fileSystems."/data" = {
+    device = "192.168.1.155:/data";
+    fsType = "nfs";
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
