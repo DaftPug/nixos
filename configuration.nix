@@ -21,6 +21,13 @@
     "i915.force_probe=56a5"
     "i915.lmem_bar_size=4096"
   ];
+
+  boot.extraModprobeConfig = ''
+    options i915 enable_guc=3
+    options i915 force_probe=56a5
+    options i915 lmem_bar_size=4096
+  '';
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
