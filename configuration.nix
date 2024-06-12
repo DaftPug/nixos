@@ -13,6 +13,19 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.kernelModules = ["i915"];
+  boot.kernelPackages = pkgs.linuxPackages_latest; 
+
+  boot.kernelParams = [ 
+    "i915.lmem_bar_size=4096"
+  ];
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # For Broadwell (2015) or newer processors. LIBVA_DRIVER_NAME=iHD
+    ];
+  };
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
 
   # networking.hostName = "nixos"; # Define your hostname.
   networking.hostName = "jelly-os"; # Define your hostname.
