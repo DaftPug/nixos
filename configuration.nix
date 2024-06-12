@@ -29,6 +29,7 @@
       libva-utils
       glxinfo
       intel-compute-runtime
+      linux-firmware
     ];
   };
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
