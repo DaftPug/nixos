@@ -17,12 +17,16 @@
   boot.kernelPackages = pkgs.linuxPackages_latest; 
 
   boot.kernelParams = [ 
+    "i915.force_probe=56a5"
     "i915.lmem_bar_size=4096"
   ];
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # For Broadwell (2015) or newer processors. LIBVA_DRIVER_NAME=iHD
+      mesa
+      libva-utils
+      glxinfo
     ];
   };
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
@@ -129,7 +133,6 @@
     gh
     wget
     curl
-    _9pfs
   ];
 
   environment.variables.EDITOR = "nvim";
