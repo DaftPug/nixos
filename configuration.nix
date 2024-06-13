@@ -35,8 +35,6 @@
       intel-vaapi-driver
       intel-ocl
       mesa
-      libva-utils
-      glxinfo
       intel-compute-runtime
       linux-firmware
     ];

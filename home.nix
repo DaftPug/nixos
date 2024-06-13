@@ -35,6 +35,10 @@
     jellyfin-ffmpeg
     macchina
     busybox
+
+    intel-gpu-tools
+    libva-utils
+    glxinfo
     # neofetch
     nnn # terminal file manager
 
