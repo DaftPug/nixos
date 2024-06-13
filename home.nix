@@ -139,6 +139,7 @@
     # TODO add your custom bashrc here
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      export NIXPKGS_ALLOW_UNFREE=1
     '';
 
     # set some aliases, feel free to add more or remove some

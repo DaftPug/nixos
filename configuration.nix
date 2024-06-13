@@ -32,6 +32,8 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # For Broadwell (2015) or newer processors. LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver
+      intel-ocl
       mesa
       libva-utils
       glxinfo
@@ -41,6 +43,7 @@
   };
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+  hardware.enableRedistributableFirmware = true;
 
   programs.nix-ld.enable = true;
   ## If needed, you can add missing libraries here. nix-index-database is your friend to
