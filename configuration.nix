@@ -37,9 +37,13 @@
       mesa
       intel-compute-runtime
       linux-firmware
+      libvdpau-va-gl
     ];
   };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
+  environment.sessionVariables = { 
+  	LIBVA_DRIVER_NAME = "iHD";
+	# LIBVA_DRIVERS_PATH = "/run/opengl-driver/lib/dri";
+  }; # Optionally, set the environment variable
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   hardware.enableRedistributableFirmware = true;
 
