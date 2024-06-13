@@ -45,11 +45,11 @@
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   hardware.enableRedistributableFirmware = true;
 
-  programs.nix-ld.enable = true;
+  # programs.nix-ld.enable = true;
   ## If needed, you can add missing libraries here. nix-index-database is your friend to
   ## find the name of the package from the error message:
   ## https://github.com/nix-community/nix-index-database
-  programs.nix-ld.libraries = options.programs.nix-ld.libraries.default ++ (with pkgs; [ yourlibrary ]);
+  # programs.nix-ld.libraries = options.programs.nix-ld.libraries.default ++ (with pkgs; [ yourlibrary ]);
   
   # networking.hostName = "nixos"; # Define your hostname.
   networking.hostName = "jelly-os"; # Define your hostname.
